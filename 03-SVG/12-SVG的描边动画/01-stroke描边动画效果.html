@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body,
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-image: url(../images/grid.png);
+      }
+      svg {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+
+      #line1 {
+        /* 指定为虚线 */
+        stroke-dasharray: 100px;
+        /* 可见 */
+        stroke-dashoffset: 0px;
+        animation: line1Move 2s linear forwards;
+      }
+
+      @keyframes line1Move {
+        0% {
+          /* 不可见 */
+          stroke-dashoffset: 100px;
+        }
+
+        100% {
+          /* 可见 */
+          stroke-dashoffset: 0px;
+        }
+      }
+
+      /* 这种写法代码更少，先不可见-》可见 */
+      #line2 {
+        /* 指定为虚线 线段和偏移量大会影响动画速度*/
+        stroke-dasharray: 300px;
+        /* 可见 */
+        stroke-dashoffset: 300px;
+        animation: line1Move2 2s linear forwards;
+      }
+      #path1 {
+        /* 指定为虚线 */
+        stroke-dasharray: 200px;
+        /* 可见 */
+        stroke-dashoffset: 200px;
+        animation: line1Move2 2s linear forwards;
+      }
+      #ellipse1 {
+        /* 指定为虚线 */
+        stroke-dasharray: 1000px;
+        /* 可见 */
+        stroke-dashoffset: 1000px;
+        animation: line1Move2 2s linear forwards;
+      }
+
+      @keyframes line1Move2 {
+        100% {
+          /* 可见 */
+          stroke-dashoffset: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+      <!-- 
+      stroke , 而不是 fill
+     -->
+      <line
+        id="line1"
+        x1="100"
+        y1="70"
+        x2="200"
+        y2="70"
+        stroke="red"
+        stroke-width="10"
+      ></line>
+      <line
+        id="line2"
+        x1="0"
+        y1="100"
+        x2="300"
+        y2="100"
+        stroke="blue"
+        stroke-width="10"
+      ></line>
+
+      <path
+        id="path1"
+        d="M 100 200, L 200 200, L 200 300"
+        stroke="red"
+        stroke-width="10"
+        fill="transparent"
+      ></path>
+
+      <ellipse
+        id="ellipse1"
+        cx="150"
+        cy="150"
+        rx="100"
+        ry="100"
+        stroke="blue"
+        stroke-width="10"
+        fill="transparent"
+      ></ellipse>
+    </svg>
+  </body>
+</html>
