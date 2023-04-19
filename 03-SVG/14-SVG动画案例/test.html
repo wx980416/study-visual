@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        background-color: red;
+      }
+    </style>
   </head>
   <body>
-    <script>
-      // 在浏览器下一次重绘之前会回调该函数的回调函数draw
-      requestAnimationFrame(draw);
-
-      function draw() {
-        console.log('draw');
-      }
-    </script>
+    <img src="./music.svg" alt="" />
   </body>
 </html>
